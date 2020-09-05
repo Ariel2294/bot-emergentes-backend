@@ -53,7 +53,7 @@ module.exports = {
     try {
       transaction = await database.Transaction(db, async () => {
         data = await db.query(
-          `SELECT mensaje, tipo, DATE_FORMAT(create_time,'%h:%i %p') as hora  FROM mensajes ORDER BY create_time ASC`
+          `SELECT mensaje, tipo, DATE_FORMAT(create_time,'%h:%i %p') as hora  FROM mensajes ORDER BY create_time DESC LIMIT 2`
         );
 
         if (!data.errno) {
